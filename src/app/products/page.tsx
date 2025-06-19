@@ -6,61 +6,13 @@ import { useCart } from '@/context/CartContext';
 import { useTranslations } from '@/context/useTranslations';
 import { useLanguage } from '@/context/LanguageContext';
 import { toast, Toaster } from 'react-hot-toast';
+import { products, Product } from '@/data/products';
 
-// Mock product data with translations
-const products = [
-  {
-    id: 1,
-    translations: {
-      en: {
-        name: 'Product 1',
-        description: 'Description for Product 1',
-        category: 'Electronics'
-      },
-      zh: {
-        name: '产品 1',
-        description: '产品 1 的描述',
-        category: '电子产品'
-      }
-    },
-    price: 99.99,
-    image: '/placeholder.jpg',
-  },
-  {
-    id: 2,
-    translations: {
-      en: {
-        name: 'Product 2',
-        description: 'Description for Product 2',
-        category: 'Accessories'
-      },
-      zh: {
-        name: '产品 2',
-        description: '产品 2 的描述',
-        category: '配件'
-      }
-    },
-    price: 149.99,
-    image: '/placeholder.jpg',
-  },
-  {
-    id: 3,
-    translations: {
-      en: {
-        name: 'Product 3',
-        description: 'Description for Product 3',
-        category: 'Electronics'
-      },
-      zh: {
-        name: '产品 3',
-        description: '产品 3 的描述',
-        category: '电子产品'
-      }
-    },
-    price: 199.99,
-    image: '/placeholder.jpg',
-  },
-];
+interface TranslatedProduct extends Product {
+  name: string;
+  description: string;
+  category: string;
+}
 
 export default function Products() {
   const [isClient, setIsClient] = useState(false);
@@ -77,12 +29,12 @@ export default function Products() {
     return null; // Or a loading spinner
   }
 
-  const getTranslatedProducts = () => {
+  const getTranslatedProducts = (): TranslatedProduct[] => {
     return products.map(product => ({
       ...product,
       name: product.translations[language].name,
       description: product.translations[language].description,
-      category: product.translations[language].category,
+      category: product.translations[language].features[0], // Using first feature as category for demo
     }));
   };
 
@@ -95,7 +47,7 @@ export default function Products() {
   const uniqueCategories = Array.from(
     new Set(translatedProducts.map(product => product.category))
   );
-  const categories = ['all', ...uniqueCategories];
+  const categories = ['all', ...uniqueCategories] as const;
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -104,7 +56,7 @@ export default function Products() {
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">{t('products.categories')}</h2>
         <div className="flex space-x-4">
-          {categories.map(category => (
+          {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -122,7 +74,7 @@ export default function Products() {
 
       {/* Products Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {filteredProducts.map(product => (
+        {filteredProducts.map((product) => (
           <div
             key={product.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
