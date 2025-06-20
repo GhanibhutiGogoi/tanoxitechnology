@@ -1,6 +1,6 @@
 1:HL["/tanoxitechnology/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 2:HL["/tanoxitechnology/_next/static/css/4c4c73f88abe9f36.css","style",{"crossOrigin":""}]
-0:["Bf0szpZkH3lYCAEMMupgJ",[[["",{"children":["contact",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/tanoxitechnology/_next/static/css/4c4c73f88abe9f36.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
+0:["CrDXFh44BNVeCW755pzPU",[[["",{"children":["contact",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"/tanoxitechnology/_next/static/css/4c4c73f88abe9f36.css","precedence":"next","crossOrigin":""}]],"$L4"]]]]
 5:I[6470,["326","static/chunks/326-389dc9288e69441b.js","185","static/chunks/app/layout-c1d48c70d8f16b78.js"],"LanguageProvider"]
 6:I[4027,["326","static/chunks/326-389dc9288e69441b.js","185","static/chunks/app/layout-c1d48c70d8f16b78.js"],"CartProvider"]
 7:I[878,["326","static/chunks/326-389dc9288e69441b.js","185","static/chunks/app/layout-c1d48c70d8f16b78.js"],""]
