@@ -11,8 +11,6 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_PATH: /Tanoxi-Technology
 
     steps:
       - name: Checkout 🛎️
@@ -31,11 +29,12 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          GITHUB_PAGES: true
           
       - name: Prepare for deployment 🚀
         run: |
           touch out/.nojekyll
-          echo "tanoxi-technology.com" > out/CNAME
+          cp out/404.html out/index.html
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
